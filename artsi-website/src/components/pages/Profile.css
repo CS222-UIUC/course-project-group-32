@@ -1,0 +1,65 @@
+.username {
+    font-size: 3rem;
+    padding-left: 25px;
+}
+
+.pfpic {
+    border-radius: 50%;
+    object-fit:cover;
+    height: 300px;
+    width: 300px;
+    border-style: groove;
+    border-color: darkblue;
+}
+
+.info {
+    border-radius: 5px;
+    border-style: groove;
+    border-color: darkblue;
+    font-size: 17px;
+    background: white;
+    padding: 1em;
+}
+
+.pf-item {
+    border-radius: 5px;
+    border-style: groove;
+    border-color: darkblue;
+    font-size: 17px;
+    background: white;
+    padding: 1em;
+    width: 275px;
+}
+
+.tut-item {
+    border-radius: 5px;
+    border-style: groove;
+    border-color: darkblue;
+    font-size: 17px;
+    background: white;
+    padding: 1em;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.pf-container {
+    column-gap: 2.5em;
+}
+
+.tut-img {
+    border-radius: 50%;
+    object-fit:cover;
+    height: 50px;
+    width: 50px;
+    border-style: groove;
+    border-color: darkblue;
+}
+
+
+.tutorials {
+    width: 70%;
+}
+
+.tut-links {
+    display: flex;
+}
