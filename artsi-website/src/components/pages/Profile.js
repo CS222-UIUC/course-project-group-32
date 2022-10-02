@@ -35,7 +35,7 @@ function Profile ({username = "username", firstname="first", lastname="last"}) {
                         </div>
                         <div className="tut-links">
                             <img className="tut-img" src={brush} alt="Profile Picture"/>
-                            <Link to='/Tutorial' style={{marginLeft: "10px", marginTop: "10px"}}>
+                            <Link to='/tutorial' state={{ t: "tutorial title", v: ""}} style={{marginLeft: "10px", marginTop: "10px"}}>
                                 Tutorial Name
                             </Link>
                         </div>
@@ -47,7 +47,7 @@ function Profile ({username = "username", firstname="first", lastname="last"}) {
                         </div>
                         <div className="tut-links">
                             <img className="tut-img" src={brush} alt="Profile Picture"/>
-                            <Link to='/Tutorial' style={{marginLeft: "10px", marginTop: "10px"}}>
+                            <Link to='/tutorial' state={{ t: "tutorial title", v: ""}} style={{marginLeft: "10px", marginTop: "10px"}}>
                                 Tutorial Name
                             </Link>
                         </div>
