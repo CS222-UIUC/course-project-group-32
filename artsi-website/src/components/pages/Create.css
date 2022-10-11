@@ -1,0 +1,19 @@
+.drop-container {
+    padding-left: 10px;
+}
+
+.create-container {
+    column-gap: 2.5em;
+    width: 100%;
+}
+
+.upload-btn-container {
+    display: flex;
+    width:500px;
+    height:100%;
+}
+
+.upload-btn {
+    height: 40px;
+    width:100%;
+}
