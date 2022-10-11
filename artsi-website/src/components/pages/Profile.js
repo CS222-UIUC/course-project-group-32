@@ -30,7 +30,7 @@ function Profile ({username = "username", firstname="first", lastname="last"}) {
                 <Grid className="tutorials">
                     <Grid className="tut-item" style={{color: 'black', backgroundColor: 'skyblue'}}>
                         <div>
-                            <b>Uploaded Tutorials</b>
+                            <b>Uploaded Videos</b>
                             <br/><br/>
                         </div>
                         <div className="tut-links">
@@ -51,6 +51,13 @@ function Profile ({username = "username", firstname="first", lastname="last"}) {
                                 Tutorial Name
                             </Link>
                         </div>
+                    </Grid>
+                    <Grid className="btn-prof">
+                        <button style={{width:"90%", height:"150%"}}>
+                            <Link to='/create'>
+                                <b>Create New Video</b>
+                            </Link>
+                        </button>
                     </Grid>
                 </Grid>
             </Grid>
