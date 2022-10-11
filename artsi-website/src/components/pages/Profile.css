@@ -63,3 +63,29 @@
 .tut-links {
     display: flex;
 }
+
+.btn-prof {
+    display: flex;
+    justify-content: center;
+    border-radius: 5px;
+    border-style: groove;
+    margin-top: 10px;
+    border-color: darkblue;
+    width: 103.5%;
+    background-color: skyblue;
+    padding-top:5px;
+}
+
+.btn-prof button {
+    padding: 0.5rem;
+    background-color: white;
+    border: none;
+    transition: 0.25;
+    margin-bottom: 0.5rem;
+    border-radius: 3px;
+}
+
+.btn-prof button:hover{
+    background: white;
+    transform: scale(1.1);
+}

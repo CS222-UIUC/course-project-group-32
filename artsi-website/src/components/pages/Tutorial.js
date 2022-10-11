@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
-import {Grid} from "@material-ui/core"
-
+import {DialogTitle, Grid} from "@material-ui/core"
+import { useLocation } from 'react-router-dom'
 
 const colors = [
   "red",
@@ -11,7 +11,12 @@ const colors = [
 ]
 
 
-function Tutorial() {
+function Tutorial({title="Tutorial Title", videosource=""}) {
+  const location = useLocation()
+  
+  const { t, v } = location.state
+  title = t; videosource=v;
+
   const canvasRef = useRef(null);
   const ctx = useRef(null);
 
@@ -82,10 +87,10 @@ function Tutorial() {
         <Grid item style={{padding: 0, margin: 0}}>
             <br></br>
             <div style={{marginLeft: 175}}>
-              <b>Tutorial Title</b>
+              <b>{title}</b>
             </div>
             <br></br>
-            <iframe width="500" height="450" src=""></iframe>
+            <iframe width="500" height="450" src={videosource}></iframe>
         </Grid>
         <Grid item style={{padding: 50}}>
 

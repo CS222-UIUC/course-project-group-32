@@ -30,6 +30,7 @@ h3,p{
 .btn{
     display: flex;
     justify-content: center;
+    background-color: skyblue;
 }
 
 .btn button {
@@ -42,7 +43,7 @@ h3,p{
 }
 
 .btn button:hover{
-    background: rgba(27, 156, 253, 0.1);
+    background: darkblue;
     transform: scale(1.1);
 }
 
