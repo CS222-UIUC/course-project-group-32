@@ -1,6 +1,8 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import {DialogTitle, Grid} from "@material-ui/core"
 import { useLocation } from 'react-router-dom'
+import './Tutorial.css'
+import {RiHeart3Fill, RiBookmarkFill} from 'react-icons/ri';
 
 const colors = [
   "red",
@@ -11,6 +13,9 @@ const colors = [
 ]
 
 
+
+
+
 function Tutorial({title="Tutorial Title", videosource=""}) {
   const location = useLocation()
   
@@ -19,13 +24,21 @@ function Tutorial({title="Tutorial Title", videosource=""}) {
 
   const canvasRef = useRef(null);
   const ctx = useRef(null);
-
+  const [isActive, setIsActive] = useState(false);
+  const [isActive2, setIsActive2] = useState(false);
   const [selectedColor, setSelectedColor] = useState(colors[0]);
   const [mouseDown, setMouseDown] = useState(false);
   const [lastPosition, setPosition] = useState({
     x: 0,
     y: 0
   });
+
+  const handleClick = () => {
+    setIsActive(current => !current);
+  };
+  const handleClick2 = () => {
+    setIsActive2(current => !current);
+  };
 
   useEffect(() => {
     if (canvasRef.current) {
@@ -91,6 +104,21 @@ function Tutorial({title="Tutorial Title", videosource=""}) {
             </div>
             <br></br>
             <iframe width="500" height="450" src={videosource}></iframe>
+            <div>
+              <RiHeart3Fill 
+                className="heart"
+                style={{ 
+                  color: isActive ? 'red' : '',
+                }} 
+                onClick={handleClick}
+              /><RiBookmarkFill 
+                className="bookmark"
+                style={{ 
+                  color: isActive2 ? 'gold' : '',
+                }} 
+                onClick={handleClick2}
+              />
+            </div>
         </Grid>
         <Grid item style={{padding: 50}}>
 
