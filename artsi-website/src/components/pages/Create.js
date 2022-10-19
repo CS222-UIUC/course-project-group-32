@@ -11,7 +11,7 @@ const baseStyle = {
   alignItems: "center",
   padding: "200px",
   marginLeft: "50px",
-  marginTop: "50px",
+  marginTop: "20px",
   borderWidth: 2,
   borderRadius: 2,
   borderColor: "#eeeeee",
@@ -133,8 +133,8 @@ function Create(props) {
                 Open File Dialog
                 </button>
             </div>
-            <div style={{marginLeft: "50px"}}>
-                <h4>Files</h4>
+            <div style={{marginLeft: "50px",fontSize:"20px"}}>
+                <h4>FILES:</h4>
                 <ul>{filepath}</ul>
             </div>
             <aside style={thumbsContainer}>{thumbs}</aside>
@@ -145,14 +145,14 @@ function Create(props) {
                 id="video-title" 
                 label="Video Name" 
                 variant="outlined" 
-                style={{marginTop: "60px", marginLeft: "50px"}}
-                data-testid="video-name"/><br/>
-            <textarea data-testid="description" name="body" style={{marginTop: "30px", marginLeft: "50px", height: "345px", width: "550px"}}>
+                style={{marginTop: "20px", marginLeft: "50px",width: "550px"}}
+                role="video-name"/><br/>
+            <textarea role="description" name="body" style={{marginTop: "20px", marginLeft: "50px", height: "345px", width: "550px"}}>
                 Write your video description here!
             </textarea>
         </Grid>
         <Grid className='upload-btn-container' xs={12}>
-          <button className='upload-btn' onClick={"Successfully Uploaded!!!"}>Upload</button>
+          <button className='upload-btn' onClick={"Successfully Uploaded!!!"}>UPLOAD</button>
         </Grid>
     </Grid>
     </div>
