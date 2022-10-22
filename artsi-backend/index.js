@@ -9,7 +9,7 @@ const cors = require("cors");
 var db = mysql.createConnection({
     host: '127.0.0.1',
     user: 'root',
-    password: 'omysql1703',
+    password: '',
     database: 'mysql'
 })
 app.use(cors());
