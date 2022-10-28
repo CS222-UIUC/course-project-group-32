@@ -5,7 +5,7 @@ import {Grid} from "@material-ui/core"
 
 function About () {
     return (
-        <div className="about-container">
+        <div role="about-text" className="about-container">
             <div className="owners"> 
                 <p>
                     <br></br>

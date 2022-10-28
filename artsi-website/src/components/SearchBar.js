@@ -15,19 +15,19 @@ function SearchBar({ placeholder, data }) {
     });
 
     if (searchWord === "") {
-      setFilteredData([]);
+      // setFilteredData([]);
     } else {
       setFilteredData(newFilter);
     }
   };
 
   const clearInput = () => {
-    setFilteredData([]);
-    setWordEntered("");
+    // setFilteredData([]);
+    // setWordEntered("");
   };
 
   return (
-    <div className="search">
+    <div role ='search' className="search">
       <div className="searchInputs">
         <input
           type="text"

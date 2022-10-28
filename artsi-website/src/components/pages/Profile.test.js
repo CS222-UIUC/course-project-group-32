@@ -6,8 +6,6 @@ test("username exists", () => {
   const { getByTestId } = render(
     <Profile username="raul" />, {wrapper: MemoryRouter}
   );
-  // get test id contains multiple ids
-  //expect == assert
   
   expect(getByTestId(/username/i).textContent).toBe("raul");
 });
