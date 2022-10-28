@@ -12,17 +12,17 @@ function Card({title,imageUrl,body, video=""}) {
     const closeMobileMenu = () => setClick(false);
 
     const showButton = () => {
-        if(window.innerWidth <= 960) {
-            setButton(false);
-        } else {
-            setButton(true);
-        }
+        // if(window.innerWidth <= 960) {
+        //     setButton(false);
+        // } else {
+        //     setButton(true);
+        // }
     }
 
     window.addEventListener('resize', showButton);
     return (
-        <div className='card-container'>
-            <Grid container direction="row" alignItems="center" justify="center">
+        <div role='card-test' className='card-container'>
+            <Grid container direction="row" alignItems="center">
                 <Grid item>
                     <img src={imageUrl} alt=''/>
                 </Grid>
