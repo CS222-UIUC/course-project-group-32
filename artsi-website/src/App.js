@@ -1,24 +1,28 @@
 import React from 'react';
 import './App.css';
 import NavBar from "./components/NavBar";
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import Home from './components/pages/Home';
 import About from './components/pages/About';
 import Practice from './components/pages/Practice';
-import Tutorial from './components/pages/Tutorial'
+import Tutorial from './components/pages/Tutorial';
+import Profile from './components/pages/Profile';
+import Create from './components/pages/Create';
 
 function App() {
   return (
     <div className='menu'>
       <Router>
         <NavBar />
-        <Switch>
-          <Route path='/' exact component={Home} />
-          <Route path='/home' exact component={Home} />
-          <Route path='/practice' exact component={Practice} />
-          <Route path='/about' exact component={About} />
-          <Route path='/tutorial' exact component={Tutorial} />
-        </Switch>
+        <Routes>
+          <Route path='/' element={<Home/>} />
+          <Route path='/home' element={<Home/>} />
+          <Route path='/practice' element={<Practice/>} />
+          <Route path='/about' element={<About/>} />
+          <Route path='/tutorial' element={<Tutorial/>} />
+          <Route path='/profile' element={<Profile/>} />
+          <Route path='/create' element={<Create/>} />
+        </Routes>
       </Router>
     </div>
   );

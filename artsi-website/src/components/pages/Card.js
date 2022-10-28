@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom'
 import './Card.css'
 import {Grid} from "@material-ui/core"
 
-function Card({title,imageUrl,body}) {
+
+function Card({title,imageUrl,body, video=""}) {
     const [click, setClick] = useState(false);
     const [button, setButton] = useState(true);
 
@@ -36,7 +37,7 @@ function Card({title,imageUrl,body}) {
             </div>
             <div className="btn">
                 <button>
-                    <Link to='/Tutorial' onClick={closeMobileMenu}>
+                    <Link to='/tutorial' state={{ t: title, v: video}} onClick={closeMobileMenu}>
                         Learn more!
                     </Link>
                 </button>
