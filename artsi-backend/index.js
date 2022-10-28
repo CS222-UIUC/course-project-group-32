@@ -9,7 +9,7 @@ const cors = require("cors");
 var db = mysql.createConnection({
     host: '127.0.0.1',
     user: 'root',
-    password: '',
+    password: 'password',
     database: 'mysql'
 })
 app.use(cors());
@@ -37,7 +37,20 @@ app.post("/api/insert/user", (require, response)=> {
         response.send(result);
         console.log(err);
     });
-})
+});
+
+app.post("/api/post/search/lessons", (require, response) => {
+    // // console.log(require.body.query);
+    const query = "%" + require.body.query + "%";
+    const sqlSelect = "SELECT * FROM Lessons WHERE Title LIKE ? ORDER BY lessonID ASC LIMIT 50";
+    db.query(sqlSelect, [query], (err, result) => {
+        console.log(sqlSelect, [query]);
+        response.send(result);
+        if (err) {
+            console.log(err);
+        }
+    });
+});
 
 app.listen(3002, ()=> {
     console.log("running on port 3002");

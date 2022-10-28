@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import "./SearchBar.css";
+import { Routes, Route, Link } from 'react-router-dom'
 import SearchIcon from "@material-ui/icons/Search";
 import CloseIcon from "@material-ui/icons/Close";
+import Search from "./pages/Search.js";
 
 function SearchBar({ placeholder, data }) {
   const [filteredData, setFilteredData] = useState([]);
@@ -35,6 +37,7 @@ function SearchBar({ placeholder, data }) {
           value={wordEntered}
           onChange={handleFilter}
         />
+        <Link to={"/search/" + wordEntered} style={{'text-decoration': 'none', 'color': 'black'}}>
         <div className="searchIcon">
           {filteredData.length === 0 ? (
             <SearchIcon />
@@ -42,6 +45,10 @@ function SearchBar({ placeholder, data }) {
             <CloseIcon id="clearBtn" onClick={clearInput} />
           )}
         </div>
+        <Routes>
+              <Route path={"/search/" + wordEntered}/>
+        </Routes>
+        </Link>
       </div>
       {/* {filteredData.length != 0 && (
         <div className="dataResult">
