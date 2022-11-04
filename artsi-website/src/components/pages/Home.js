@@ -5,7 +5,7 @@ import {Grid} from "@material-ui/core"
 
 function Home () {
     return (
-        <div style={{ padding: 30 }}>
+        <div role='home-exists' style={{ padding: 30 }}>
             <Grid container direction="row" alignItems="center" justify="center" style={{minHeight: "75vh"}} spacing={7} className='home-container'>
                 <Grid item>
                     <Card
