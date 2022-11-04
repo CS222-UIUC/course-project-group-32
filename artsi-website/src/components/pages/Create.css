@@ -1,0 +1,27 @@
+.drop-container {
+    padding-left: 10px;
+}
+
+.create-container {
+    column-gap: 2.5em;
+    width: 100%;
+}
+
+.upload-btn-container {
+    display: flex;
+    width: 300px;
+    height:100%;
+    align-items: center;
+
+}
+
+.upload-btn {
+    height: 40px;
+    width:50%;
+    background-color: #011b56;;
+    color: #fff;
+    font-size:larger;
+    /* font-family: 'Times New Roman'; Times; serif; */
+    font-weight: 700;
+}
+

@@ -1,7 +1,14 @@
 import React, { useState } from "react";
 import "./SearchBar.css";
+<<<<<<< .merge_file_a04448
 import SearchIcon from "@material-ui/icons/Search";
 import CloseIcon from "@material-ui/icons/Close";
+=======
+import { Routes, Route, Link } from 'react-router-dom'
+import SearchIcon from "@material-ui/icons/Search";
+import CloseIcon from "@material-ui/icons/Close";
+import Search from "./pages/Search.js";
+>>>>>>> .merge_file_a17072
 
 function SearchBar({ placeholder, data }) {
   const [filteredData, setFilteredData] = useState([]);
@@ -15,19 +22,32 @@ function SearchBar({ placeholder, data }) {
     });
 
     if (searchWord === "") {
+<<<<<<< .merge_file_a04448
       setFilteredData([]);
+=======
+      // setFilteredData([]);
+>>>>>>> .merge_file_a17072
     } else {
       setFilteredData(newFilter);
     }
   };
 
   const clearInput = () => {
+<<<<<<< .merge_file_a04448
     setFilteredData([]);
     setWordEntered("");
   };
 
   return (
     <div className="search">
+=======
+    // setFilteredData([]);
+    // setWordEntered("");
+  };
+
+  return (
+    <div role ='search' className="search">
+>>>>>>> .merge_file_a17072
       <div className="searchInputs">
         <input
           type="text"
@@ -35,6 +55,10 @@ function SearchBar({ placeholder, data }) {
           value={wordEntered}
           onChange={handleFilter}
         />
+<<<<<<< .merge_file_a04448
+=======
+        <Link to={"/search/" + wordEntered} style={{'text-decoration': 'none', 'color': 'black'}}>
+>>>>>>> .merge_file_a17072
         <div className="searchIcon">
           {filteredData.length === 0 ? (
             <SearchIcon />
@@ -42,6 +66,13 @@ function SearchBar({ placeholder, data }) {
             <CloseIcon id="clearBtn" onClick={clearInput} />
           )}
         </div>
+<<<<<<< .merge_file_a04448
+=======
+        <Routes>
+              <Route path={"/search/" + wordEntered}/>
+        </Routes>
+        </Link>
+>>>>>>> .merge_file_a17072
       </div>
       {/* {filteredData.length != 0 && (
         <div className="dataResult">

@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom'
 import './Card.css'
 import {Grid} from "@material-ui/core"
 
-function Card({title,imageUrl,body}) {
+
+function Card({title,imageUrl,body, video=""}) {
     const [click, setClick] = useState(false);
     const [button, setButton] = useState(true);
 
@@ -11,17 +12,17 @@ function Card({title,imageUrl,body}) {
     const closeMobileMenu = () => setClick(false);
 
     const showButton = () => {
-        if(window.innerWidth <= 960) {
-            setButton(false);
-        } else {
-            setButton(true);
-        }
+        // if(window.innerWidth <= 960) {
+        //     setButton(false);
+        // } else {
+        //     setButton(true);
+        // }
     }
 
     window.addEventListener('resize', showButton);
     return (
-        <div className='card-container'>
-            <Grid container direction="row" alignItems="center" justify="center">
+        <div role='card-test' className='card-container'>
+            <Grid container direction="row" alignItems="center">
                 <Grid item>
                     <img src={imageUrl} alt=''/>
                 </Grid>
@@ -36,7 +37,7 @@ function Card({title,imageUrl,body}) {
             </div>
             <div className="btn">
                 <button>
-                    <Link to='/Tutorial' onClick={closeMobileMenu}>
+                    <Link to='/tutorial' state={{ t: title, v: video}} onClick={closeMobileMenu}>
                         Learn more!
                     </Link>
                 </button>

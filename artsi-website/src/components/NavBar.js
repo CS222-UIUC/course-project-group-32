@@ -17,23 +17,35 @@ function NavBar() {
     const handleClick = () => setClick(!click);
     const closeMobileMenu = () => setClick(false);
 
-    const showButton = () => {
-        if(window.innerWidth <= 960) {
-            setButton(false);
-        } else {
-            setButton(true);
-        }
-    }
+    // const showButton = () => {
+    //     if(window.innerWidth <= 960) {
+    //         setButton(false);
+    //     } else {
+    //         setButton(true);
+    //     }
+    // }
 
-    window.addEventListener('resize', showButton);
+    // window.addEventListener('resize', showButton);
     
     return (
-        <>
-            <nav className="navbar">
-                <div>
-                    <Link to="/home" className="navbar-logo">
-                        <img src={logo} alt="Logo" style={imgStyle}/>
+        <nav role='nav-exists' className="navbar">
+            <div>
+                <Link to="/home" className="navbar-logo">
+                    <img src={logo} alt="Logo" style={imgStyle}/>
+                </Link>
+            </div>
+            <div className='menu-icon' onClick={handleClick}>
+                <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
+            </div>
+            <div className={click ? 'nav-menu active' : 'nav-menu'}>
+                <SearchBar placeholder="Search Artsi..." data={Data}/>
+            </div>
+            <ul className={click ? 'nav-menu active' : 'nav-menu'}>
+                <li className='nav-item'>
+                    <Link to='/home' className='nav-links' onClick={closeMobileMenu}>
+                        Home
                     </Link>
+<<<<<<< .merge_file_a23828
                 </div>
                 <div className='menu-icon' onClick={handleClick}>
                     <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
@@ -66,6 +78,32 @@ function NavBar() {
                 {button && <Button buttonStyle='btn--outline'>Login</Button>}
             </nav>
         </>
+=======
+                </li>
+                {/* <li className='nav-item'>
+                    <Link to='/practice' className='nav-links' onClick={closeMobileMenu}>
+                        Practice
+                    </Link>
+                </li> */}
+                <li className='nav-item'>
+                    <Link to='/profile' className='nav-links' onClick={closeMobileMenu}>
+                        Profile
+                    </Link>
+                </li>
+                <li className='nav-item'>
+                    <Link to='/about' className='nav-links' onClick={closeMobileMenu}>
+                        About
+                    </Link>
+                </li>
+                <li className='nav-item'>
+                    <Link to='/login' className='nav-links-mobile' onClick={closeMobileMenu}>
+                        Login
+                    </Link>
+                </li>
+            </ul>
+            {button && <Button buttonStyle='btn--outline'>Login</Button>}
+        </nav>
+>>>>>>> .merge_file_a20124
     )
 }
 
