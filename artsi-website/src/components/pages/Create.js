@@ -81,13 +81,13 @@ function Create(props) {
     noClick: true,
     noKeyboard: true,
     onDrop: acceptedFiles => {
-      setFiles(
-        acceptedFiles.map(file =>
-          Object.assign(file, {
-            preview: URL.createObjectURL(file)
-          })
-        )
-      );
+      // setFiles(
+      //   acceptedFiles.map(file =>
+      //     Object.assign(file, {
+      //       preview: URL.createObjectURL(file)
+      //     })
+      //   )
+      // );
     }
   });
 
@@ -123,7 +123,7 @@ function Create(props) {
     </li>
   ));
   return (
-    <div style={{ padding: 30 }}>
+    <div role="cont-test" style={{ padding: 30 }}>
     <Grid className="create-container" direction="row" container spacing={2}>
         <Grid className="drop-container">
             <div {...getRootProps({ style })}>
