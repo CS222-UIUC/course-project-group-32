@@ -110,12 +110,14 @@ function Tutorial({title="Tutorial Title", videosource=""}) {
                 style={{ 
                   color: isActive ? 'red' : '',
                 }} 
+                role = "heart"
                 onClick={handleClick}
               /><RiBookmarkFill 
                 className="bookmark"
                 style={{ 
                   color: isActive2 ? 'gold' : '',
                 }} 
+                role = "bookmark"
                 onClick={handleClick2}
               />
             </div>
@@ -149,8 +151,18 @@ function Tutorial({title="Tutorial Title", videosource=""}) {
         </select>
         <button onClick={clear}>Clear</button>
         <button onClick={download}>Download</button>
+        
+        <Grid item style = {{marginTop:10}}>
+        <label>test drop down</label>
+        <select name = "test" id = "test_id">
+        <option value="test_a">A</option>
+        <option value="test_b">B</option>
+        <option value="test_c">C</option>
+        <option value="test_d">D</option>
+        </select>
         </Grid>
-      </Grid>
+        </Grid>
+        </Grid>
     );
 }
 
