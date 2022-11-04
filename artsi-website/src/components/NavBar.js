@@ -45,40 +45,6 @@ function NavBar() {
                     <Link to='/home' className='nav-links' onClick={closeMobileMenu}>
                         Home
                     </Link>
-<<<<<<< .merge_file_a23828
-                </div>
-                <div className='menu-icon' onClick={handleClick}>
-                    <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
-                </div>
-                <div className={click ? 'nav-menu active' : 'nav-menu'}>
-                    <SearchBar placeholder="Search Artsi..." data={Data}/>
-                </div>
-                <ul className={click ? 'nav-menu active' : 'nav-menu'}>
-                    <li className='nav-item'>
-                        <Link to='/home' className='nav-links' onClick={closeMobileMenu}>
-                            Home
-                        </Link>
-                    </li>
-                    <li className='nav-item'>
-                        <Link to='/practice' className='nav-links' onClick={closeMobileMenu}>
-                            Practice
-                        </Link>
-                    </li>
-                    <li className='nav-item'>
-                        <Link to='/about' className='nav-links' onClick={closeMobileMenu}>
-                            About
-                        </Link>
-                    </li>
-                    <li className='nav-item'>
-                        <Link to='/login' className='nav-links-mobile' onClick={closeMobileMenu}>
-                            Login
-                        </Link>
-                    </li>
-                </ul>
-                {button && <Button buttonStyle='btn--outline'>Login</Button>}
-            </nav>
-        </>
-=======
                 </li>
                 {/* <li className='nav-item'>
                     <Link to='/practice' className='nav-links' onClick={closeMobileMenu}>
@@ -103,7 +69,6 @@ function NavBar() {
             </ul>
             {button && <Button buttonStyle='btn--outline'>Login</Button>}
         </nav>
->>>>>>> .merge_file_a20124
     )
 }
 

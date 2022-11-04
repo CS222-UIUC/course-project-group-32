@@ -19,11 +19,6 @@ function App() {
         <Routes>
           <Route path='/' element={<Home/>} />
           <Route path='/home' element={<Home/>} />
-<<<<<<< .merge_file_a27536
-          <Route path='/practice' element={<Practice/>} />
-          <Route path='/about' element={<About/>} />
-          <Route path='/tutorial' element={<Tutorial/>} />
-=======
           {/* <Route path='/practice' element={<Practice/>} /> */}
           <Route path='/about' element={<About/>} />
           <Route path='/tutorial' element={<Tutorial/>} />
@@ -33,7 +28,6 @@ function App() {
           <Route path='/search' element={<Search/>}>
             <Route path=":id" element={<Search/>}/>
           </Route>
->>>>>>> .merge_file_a29588
         </Routes>
       </Router>
     </div>
