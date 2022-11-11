@@ -77,17 +77,19 @@ function Create(props) {
     acceptedFiles,
     open
   } = useDropzone({
-    accept: "image/*",
+    accept: {
+      'video/mp4': ['.mp4'],
+    },
     noClick: true,
     noKeyboard: true,
     onDrop: acceptedFiles => {
-      // setFiles(
-      //   acceptedFiles.map(file =>
-      //     Object.assign(file, {
-      //       preview: URL.createObjectURL(file)
-      //     })
-      //   )
-      // );
+      setFiles(
+        acceptedFiles.map(file =>
+          Object.assign(file, {
+            preview: URL.createObjectURL(file)
+          })
+        )
+      );
     }
   });
 
@@ -128,9 +130,9 @@ function Create(props) {
         <Grid className="drop-container">
             <div {...getRootProps({ style })}>
                 <input {...getInputProps()} />
-                <p>Drag 'n' drop video file here</p>
+                <p>Drag 'n' drop video file here!</p>
                 <button type="button" onClick={open}>
-                Open File Dialog
+                  Open File Dialog
                 </button>
             </div>
             <div style={{marginLeft: "50px",fontSize:"20px"}}>
