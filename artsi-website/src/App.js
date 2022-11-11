@@ -8,6 +8,8 @@ import Practice from './components/pages/Practice';
 import Tutorial from './components/pages/Tutorial';
 import Profile from './components/pages/Profile';
 import Create from './components/pages/Create';
+import SignUp from './components/pages/SignUp';
+import Search from './components/pages/Search';
 
 function App() {
   return (
@@ -22,6 +24,10 @@ function App() {
           <Route path='/tutorial' element={<Tutorial/>} />
           <Route path='/profile' element={<Profile/>} />
           <Route path='/create' element={<Create/>} />
+          <Route path='/sign-up' element={<SignUp/>}/>
+          <Route path='/search' element={<Search/>}>
+            <Route path=":id" element={<Search/>}/>
+          </Route>
         </Routes>
       </Router>
     </div>
