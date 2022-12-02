@@ -1,9 +1,17 @@
 import { getByTestId, render } from "@testing-library/react";
-import Tutorial from "./Tutorial";
+import Tutorial from './Tutorial'
 
 
-test("tutorial exists", () => {
+
+test("button highlight", () => {
     const { getByRole } = render(<Tutorial />);
-    const name = getByRole('tutorial-exists');
-    expect(name).toBeInTheDocument()
+    const name = getByRole("heart");
+    
+});
+
+test("button highlight changes color", () => {
+    const { getByRole } = render(<Tutorial />);
+    const name = getByRole("bookmark");
+    
+    
 });
