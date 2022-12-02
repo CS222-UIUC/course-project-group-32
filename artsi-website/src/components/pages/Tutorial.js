@@ -92,6 +92,71 @@ function Tutorial({title="Tutorial Title", videosource=""}) {
   const handleClick = () => { setIsActive(current => !current); };
   const handleClick2 = () => { setIsActive2(current => !current); };
  return ( 
+
+    <><div role='tutorial-exists'>
+     <Grid container direction="row" alignItems="center" justify="center" spacing="7px">
+       <Grid item style={{ padding: 0, margin: 0 }}>
+         <br></br>
+         <div style={{ marginLeft: 175 }}>
+           <b>{title}</b>
+         </div>
+         <br></br>
+         <iframe width="500" height="450" src={videosource}></iframe>
+         <div>
+           <RiHeart3Fill
+             className="heart"
+             style={{
+               color: isActive ? 'red' : '',
+             }}
+             role="heart"
+             onClick={handleClick} /><RiBookmarkFill
+             className="bookmark"
+             style={{
+               color: isActive2 ? 'gold' : '',
+             }}
+             role="bookmark"
+             onClick={handleClick2} />
+         </div>
+       </Grid>
+       <Grid item style={{ padding: 50 }}>
+
+       </Grid>
+       <Grid item style={{ marginTop: 50 }}>
+         <canvas
+           style={{
+             border: "1px solid #000"
+           }}
+           width={650}
+           height={550}
+           ref={canvasRef}
+           onMouseDown={onMouseDown}
+           onMouseUp={onMouseUp}
+           onMouseLeave={onMouseUp}
+           onMouseMove={onMouseMove} />
+         <br />
+         <select
+           value={selectedColor}
+           onChange={(e) => setSelectedColor(e.target.value)}
+         >
+           {colors.map(
+             color => <option key={color} value={color}>{color}</option>
+           )}
+         </select>
+         <button onClick={clear}>Clear</button>
+         <button onClick={download}>Download</button>
+       </Grid>
+     </Grid>
+   </div><Grid item style={{ marginTop: 10 }}>
+       <label>test drop down</label>
+       <select name="test" id="test_id">
+         <option value="test_a">A</option>
+         <option value="test_b">B</option>
+         <option value="test_c">C</option>
+         <option value="test_d">D</option>
+       </select>
+     </Grid></>
+
+/*
     <div role='tutorial-exists'>
       <Grid container direction="row" alignItems="center" justify="center" spacing="7px">
         <Grid item style={{padding: 0, margin: 0}}>
@@ -151,6 +216,7 @@ function Tutorial({title="Tutorial Title", videosource=""}) {
         </Grid>
       </Grid>
       </div>
+     */
     );
 }
 

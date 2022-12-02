@@ -1,0 +1,19 @@
+#outer {
+    /* to be refined by front-end team */
+    /* text-decoration: none; */
+    padding: 30px;
+    border-radius: 15px;
+    border-style: solid;
+    border-color: black;
+    background-color: white;
+    transition: 0.33s;
+}
+
+#outer:hover {
+    background-color: lightblue;
+    transition: 0.33s;
+}
+
+#outer-outer {
+    padding: 10px;
+}

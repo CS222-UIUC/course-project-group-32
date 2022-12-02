@@ -3,6 +3,7 @@ import { useDropzone } from "react-dropzone";
 import {Grid} from "@material-ui/core"
 import {TextField} from "@material-ui/core"
 import './Create.css';
+import Axios from 'axios';
 
 const baseStyle = {
   flex: 1,
@@ -124,6 +125,20 @@ function Create(props) {
       {file.path} - {file.size} bytes
     </li>
   ));
+
+  function upload() {
+    const apikey = '20b94b9093a1dc7b35db';
+    const secret = 'f16896213a523108658a606b641213244080f9ed';
+    const title = console.log(document.getElementById("video-title").value);
+    const desc = console.log(document.getElementById("desc").value);
+    const authlink = 'https://www.dailymotion.com/oauth/authorize';
+    const uploadlink = 'https://api.dailymotion.com/file/upload';
+
+    Axios.get('').then((e) => {
+      console.log(e);
+    });
+  };
+
   return (
     <div role="cont-test" style={{ padding: 30 }}>
     <Grid className="create-container" direction="row" container spacing={2}>
@@ -149,7 +164,7 @@ function Create(props) {
                 variant="outlined" 
                 style={{marginTop: "20px", marginLeft: "50px",width: "550px"}}
                 role="video-name"/><br/>
-            <textarea role="description" name="body" style={{marginTop: "20px", marginLeft: "50px", height: "345px", width: "550px"}}>
+            <textarea id="desc" role="description" name="body" style={{marginTop: "20px", marginLeft: "50px", height: "345px", width: "550px"}}>
                 Write your video description here!
             </textarea>
             <Grid item style = {{marginTop:10, marginLeft: "50px"}}>
@@ -163,7 +178,7 @@ function Create(props) {
 
         </Grid>
         <Grid className='upload-btn-container' xs={12}>
-          <button className='upload-btn' onClick={"Successfully Uploaded!!!"}>UPLOAD</button>
+          <button className='upload-btn' onClick={upload}>UPLOAD</button>
         </Grid>
     </Grid>
     </div>
