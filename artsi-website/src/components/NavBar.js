@@ -5,6 +5,7 @@ import './NavBar.css';
 import { Button } from './Button';
 import SearchBar from './SearchBar';
 import Data from './Data.json'
+import Cookies from 'universal-cookie';
 
 function NavBar() {
     const imgStyle = {
@@ -16,6 +17,10 @@ function NavBar() {
 
     const handleClick = () => setClick(!click);
     const closeMobileMenu = () => setClick(false);
+    const cookies = new Cookies();
+    const logOut = () => {
+        cookies.remove('arl', '', {path: '/'});
+    }
 
     // const showButton = () => {
     //     if(window.innerWidth <= 960) {
@@ -46,11 +51,11 @@ function NavBar() {
                         Home
                     </Link>
                 </li>
-                {/* <li className='nav-item'>
+                <li className='nav-item'>
                     <Link to='/practice' className='nav-links' onClick={closeMobileMenu}>
                         Practice
                     </Link>
-                </li> */}
+                </li>
                 <li className='nav-item'>
                     <Link to='/profile' className='nav-links' onClick={closeMobileMenu}>
                         Profile
@@ -68,6 +73,7 @@ function NavBar() {
                 </li>
             </ul>
             {button && <Button buttonStyle='btn--outline'>Login</Button>}
+            {button && <Button buttonStyle='btn--outline' onClick={logOut}>Logout</Button>}
         </nav>
     )
 }
