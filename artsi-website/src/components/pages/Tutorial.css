@@ -1,0 +1,29 @@
+.heart{
+    font-size: 35px;
+    color:rgb(182, 173, 173);
+    margin-top: 7px;
+    width: 70px;
+    outline: none;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.heart:hover {
+    color: red;
+}
+
+.bookmark {
+    font-size: 35px;
+    color:rgb(182, 173, 173);
+    margin-top: 7px;
+    width: 70px;
+    outline: none;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.bookmark:hover {
+    color: gold;
+}
