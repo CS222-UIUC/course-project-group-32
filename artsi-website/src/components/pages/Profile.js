@@ -105,7 +105,7 @@ function Profile () {
                     <Grid className="btn-prof">
                         <button style={{width:"90%", height:"150%"}}>
                             <Link to='/create'>
-                                <b>Create New Video</b>
+                                <b>Upload New Video</b>
                             </Link>
                         </button>
                     </Grid>

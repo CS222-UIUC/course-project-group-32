@@ -9,7 +9,7 @@ const cors = require("cors");
 var db = mysql.createConnection({
     host: '127.0.0.1',
     user: 'root',
-    password: 'artsi',
+    password: 'omysql1703',
     database: 'mysql'
 })
 app.use(cors());
@@ -36,6 +36,23 @@ app.post("/api/insert/user", (require, response)=> {
     db.query(sqlInsert, [username, firstname, lastname, password], (err, result) => {
         response.send(result);
         console.log(err);
+    });
+});
+
+app.post("/api/insert/create", (require, response) => {
+    // // console.log(require.body.query);
+    const title = require.body.title;
+    const description = require.body.description;
+    const link = require.body.link;
+    const username = require.body.username;
+    // const query = "%" + require.body.query + "%";
+    const sqlInsert = "INSERT INTO `lessons` (`lessonID`, `Title`, `Description`, `link`, `Username`) VALUES (((SELECT m FROM (SELECT max(`lessonID`) AS m FROM `lessons`) as k) + 1), ?, ?, ?, ?);"
+    db.query(sqlInsert, [title, description, link, username], (err, result) => {
+        // console.log(sqlInsert, [query]);
+        response.send(result);
+        if (err) {
+            console.log(err);
+        }
     });
 });
 
