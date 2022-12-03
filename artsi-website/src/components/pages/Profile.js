@@ -1,13 +1,60 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './Profile.css'
+import SignUp from './SignUp.js';
 import {Grid} from "@material-ui/core"
 import pf from './test.png';
 import brush from './brush.png';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import {Navigate} from 'react-router-dom';
+import Axios from 'axios';
+import Cookies from 'universal-cookie';
+import Lesson from '../Lesson';
 
-function Profile ({username = "username", firstname="first", lastname="last"}) {
-    return (
+function Profile () {
+    const url = "http://localhost:3002";
+    let arl = "";
+    const [username, setUsername] = useState('');
+    const [firstname, setFirstname] = useState('');
+    const [lastname, setLastname] = useState('');
+    const [lessons, setLessons] = useState([]);
+    const login = () => {
+        Axios.post(url + '/api/get/user/', {
+            arl: arl
+        }).then((response) => {
+            let data = response.data[0];
+            if (response.data.length > 0) {
+                setUsername(data.username);
+                setFirstname(data.firstname);
+                setLastname(data.lastname);
+            }
+        })
+    }
+    const getLiked = () => {
+        Axios.post(url + '/api/get/user_likes/', {
+            arl: arl
+        }).then((response) => {
+            let data = response.data;
+            if (response.data.length > 0) {
+                setLessons(data);
+                // console.log(lessons);
+            }
+        })
+    }
+    useEffect(() => {
+        const cookies = new Cookies();
+        // console.log("REDIRECTING");
+        arl = cookies.get('arl');
+        login();
+        getLiked();
+        if (username === '') {
+            return <Navigate to='/sign-up'/>
+        } else {
+            // console.log(username);
+        }
+    }, []);
+    return username != '' ?
         <div style={{ padding: 30 }}>
+            <h1>Your Profile</h1>
             <Grid className="pf-container" direction="row" container spacing={2}>
                 <Grid className="info" style={{color: 'black', backgroundColor: 'skyblue'}}>
                     <div className='username'>
@@ -30,7 +77,7 @@ function Profile ({username = "username", firstname="first", lastname="last"}) {
                 <Grid className="tutorials">
                     <Grid className="tut-item" style={{color: 'black', backgroundColor: 'skyblue'}}>
                         <div>
-                            <b>Uploaded Videos</b>
+                            <b>Uploaded Lessons</b>
                             <br/><br/>
                         </div>
                         <div className="tut-links">
@@ -42,8 +89,11 @@ function Profile ({username = "username", firstname="first", lastname="last"}) {
                     </Grid>
                     <Grid className="tut-item" style={{color: 'black', backgroundColor: 'skyblue'}}>
                         <div>
-                            <b>Liked Videos</b>
+                            <b>Liked Lessons</b>
                             <br/><br/>
+                            {lessons.map((lesson) => {
+                                return <Lesson lesson={lesson} key={lesson.lessonID}/>
+                            })}
                         </div>
                         <div className="tut-links">
                             <img className="tut-img" src={brush} alt="Profile Picture"/>
@@ -61,8 +111,7 @@ function Profile ({username = "username", firstname="first", lastname="last"}) {
                     </Grid>
                 </Grid>
             </Grid>
-        </div>
-    )
+        </div> : <h1>Please sign in</h1>
 }
 
 export default Profile;

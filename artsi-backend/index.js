@@ -9,7 +9,7 @@ const cors = require("cors");
 var db = mysql.createConnection({
     host: '127.0.0.1',
     user: 'root',
-    password: 'password',
+    password: 'artsi',
     database: 'mysql'
 })
 app.use(cors());
@@ -50,6 +50,32 @@ app.post("/api/post/search/lessons", (require, response) => {
             console.log(err);
         }
     });
+});
+
+app.post("/api/get/user", (require, response) => {
+    const arl = require.body.arl;
+    console.log(require.body);
+    const username = arl;
+    const sqlSelect = "SELECT * FROM Users WHERE username = ?";
+    db.query(sqlSelect, [username], (err, result) => {
+        // console.log(sqlSelect, [username]);
+        response.send(result);
+        if (err) {
+            console.log(err);
+        }
+    });
+});
+
+app.post("/api/get/user_likes", (require, response) => {
+    const arl = require.body.arl;
+    const sqlSelect = "SELECT * from Lessons where lessonID in (SELECT lessonID FROM LikedBy WHERE username = ?)";
+    db.query(sqlSelect, [arl], (err, result) => {
+        // console.log(result);
+        response.send(result);
+        if (err) {
+            console.log(err);
+        }
+    })
 });
 
 app.listen(3002, ()=> {

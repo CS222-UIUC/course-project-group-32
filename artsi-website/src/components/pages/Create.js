@@ -3,6 +3,7 @@ import { useDropzone } from "react-dropzone";
 import {Grid} from "@material-ui/core"
 import {TextField} from "@material-ui/core"
 import './Create.css';
+import Axios from 'axios';
 
 const baseStyle = {
   flex: 1,
@@ -77,17 +78,19 @@ function Create(props) {
     acceptedFiles,
     open
   } = useDropzone({
-    accept: "image/*",
+    accept: {
+      'video/mp4': ['.mp4'],
+    },
     noClick: true,
     noKeyboard: true,
     onDrop: acceptedFiles => {
-      // setFiles(
-      //   acceptedFiles.map(file =>
-      //     Object.assign(file, {
-      //       preview: URL.createObjectURL(file)
-      //     })
-      //   )
-      // );
+      setFiles(
+        acceptedFiles.map(file =>
+          Object.assign(file, {
+            preview: URL.createObjectURL(file)
+          })
+        )
+      );
     }
   });
 
@@ -122,15 +125,29 @@ function Create(props) {
       {file.path} - {file.size} bytes
     </li>
   ));
+
+  function upload() {
+    const apikey = '20b94b9093a1dc7b35db';
+    const secret = 'f16896213a523108658a606b641213244080f9ed';
+    const title = console.log(document.getElementById("video-title").value);
+    const desc = console.log(document.getElementById("desc").value);
+    const authlink = 'https://www.dailymotion.com/oauth/authorize';
+    const uploadlink = 'https://api.dailymotion.com/file/upload';
+
+    Axios.get('').then((e) => {
+      console.log(e);
+    });
+  };
+
   return (
     <div role="cont-test" style={{ padding: 30 }}>
     <Grid className="create-container" direction="row" container spacing={2}>
         <Grid className="drop-container">
             <div {...getRootProps({ style })}>
                 <input {...getInputProps()} />
-                <p>Drag 'n' drop video file here</p>
+                <p>Drag 'n' drop video file here!</p>
                 <button type="button" onClick={open}>
-                Open File Dialog
+                  Open File Dialog
                 </button>
             </div>
             <div style={{marginLeft: "50px",fontSize:"20px"}}>
@@ -147,12 +164,21 @@ function Create(props) {
                 variant="outlined" 
                 style={{marginTop: "20px", marginLeft: "50px",width: "550px"}}
                 role="video-name"/><br/>
-            <textarea role="description" name="body" style={{marginTop: "20px", marginLeft: "50px", height: "345px", width: "550px"}}>
+            <textarea id="desc" role="description" name="body" style={{marginTop: "20px", marginLeft: "50px", height: "345px", width: "550px"}}>
                 Write your video description here!
             </textarea>
+            <Grid item style = {{marginTop:10, marginLeft: "50px"}}>
+              <label>Select Category </label>
+              <select name ="selection" id = "test_id">
+                <option value="drawing">Drawing Principles</option>
+                <option value="color">Coloring</option>
+                <option value="figure">Figure Drawing</option>
+              </select>
+            </Grid>
+
         </Grid>
         <Grid className='upload-btn-container' xs={12}>
-          <button className='upload-btn' onClick={"Successfully Uploaded!!!"}>UPLOAD</button>
+          <button className='upload-btn' onClick={upload}>UPLOAD</button>
         </Grid>
     </Grid>
     </div>

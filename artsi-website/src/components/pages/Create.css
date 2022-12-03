@@ -9,8 +9,8 @@
 
 .upload-btn-container {
     display: flex;
-    width: 300px;
-    height:100%;
+    width: 200px;
+    height: 100%;
     align-items: center;
 
 }
@@ -21,7 +21,15 @@
     background-color: #011b56;;
     color: #fff;
     font-size:larger;
-    /* font-family: 'Times New Roman'; Times; serif; */
+    font-weight: 700;
+}
+
+.upload-btn:hover {
+    height: 40px;
+    width:50%;
+    background-color: skyblue;
+    color: #fff;
+    font-size:larger;
     font-weight: 700;
 }
 
