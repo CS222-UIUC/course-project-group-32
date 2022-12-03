@@ -167,6 +167,15 @@ function Create(props) {
             <textarea id="desc" role="description" name="body" style={{marginTop: "20px", marginLeft: "50px", height: "345px", width: "550px"}}>
                 Write your video description here!
             </textarea>
+            <Grid item style = {{marginTop:10, marginLeft: "50px"}}>
+              <label>Select Category </label>
+              <select name ="selection" id = "test_id">
+                <option value="drawing">Drawing Principles</option>
+                <option value="color">Coloring</option>
+                <option value="figure">Figure Drawing</option>
+              </select>
+            </Grid>
+
         </Grid>
         <Grid className='upload-btn-container' xs={12}>
           <button className='upload-btn' onClick={upload}>UPLOAD</button>
