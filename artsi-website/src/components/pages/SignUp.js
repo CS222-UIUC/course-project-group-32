@@ -39,32 +39,33 @@ function SignUp () {
         })
       }
     return (
-        <div id="container">
-            <div id="card">
+        <div id="container" style={{padding:"20px", display: "flex", justifyContent: "center", alignItems: "center"}}>
+            <div id="card" style={{borderRadius: "10px",}}>
                 <h1>Log In</h1>
-                <label>Username <input id="cred-field" type="text" onChange={(e) => {
+                <label style={{fontSize:"20px", fontWeight:"500"}}>Username: <input id="cred-field" type="text" onChange={(e) => {
                     setUsername(e.target.value);
                 }} value={username}/></label>
-                <label>Password <input id="cred-field" type="password" onChange={(e) => {
+                <label style={{fontSize:"20px", fontWeight:"500"}}>Password: <input id="cred-field" type="password" onChange={(e) => {
                     setPassword(e.target.value);
                 }} value={password}/></label>
-                <button className="btn" onClick={login}>Log in</button>
+                <button className="login-btn" onClick={login} style={{fontSize:"15px", fontWeight:"500", marginTop: "50px", width: "80%", marginLeft: "5%", borderRadius: "5px"}}>Log in</button>
             </div>
-            <div id="card">
+            <div style={{width: "100px"}}></div>
+            <div id="card" style={{borderRadius: "10px"}}>
                 <h1>Sign Up</h1>
-                <label>First Name: <input id="cred-field" type="text" onChange={(e) => {
+                <label style={{fontSize:"20px", fontWeight:"500"}}>First Name: <input id="cred-field" type="text" onChange={(e) => {
                     setFirstname(e.target.value);
                 }} value={firstname}/></label>
-                <label>Last Name: <input id="cred-field" type="text" onChange={(e) => {
+                <label style={{fontSize:"20px", fontWeight:"500"}}>Last Name: <input id="cred-field" type="text" onChange={(e) => {
                     setLastname(e.target.value);
                 }} value={lastname}/></label>
-                <label>Username: <input id="cred-field" type="text" onChange={(e) => {
+                <label style={{fontSize:"20px", fontWeight:"500"}}>Username: <input id="cred-field" type="text" onChange={(e) => {
                     setRUsername(e.target.value);
                 }} value={rUsername}/></label>
-                <label>Password: <input id="cred-field" type="password" onChange={(e) => {
+                <label style={{fontSize:"20px", fontWeight:"500"}}>Password: <input id="cred-field" type="password" onChange={(e) => {
                     setRPassword(e.target.value);
                 }} value={rPassword}/></label>
-                <button className="btn" onClick={register}>Register</button>
+                <button className="register-btn" onClick={register} style={{fontSize:"15px", fontWeight:"500", marginTop: "50px", width: "80%", marginLeft: "5%", borderRadius: "5px"}}>Register</button>
             </div>
         </div>
     )

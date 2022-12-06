@@ -8,8 +8,6 @@ function About () {
         <div role="about-text" className="about-container">
             <div className="owners"> 
                 <p>
-                    <br></br>
-                    <b>Freya Bansal</b>:<br></br>Co-Founder, business strategy and marketing, outreach, 3D modeling <br></br>
                     <br></br> 
                     <b>Raul Higareda</b>:<br></br> Co-Founder, web development
                 </p>
