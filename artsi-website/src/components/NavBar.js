@@ -71,6 +71,11 @@ function NavBar() {
                     {button && <Button buttonStyle='btn--outline'>Login</Button>}
                     </div>
                 </li>
+                <li className='nav-item'>
+                    <div className="nav-login">
+                    {button && <Button buttonStyle='btn--outline' onClick={logOut}>Log Out</Button>}
+                    </div>
+                </li>
             </ul>
         </nav>
     )

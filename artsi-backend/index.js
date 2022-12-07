@@ -9,7 +9,7 @@ const cors = require("cors");
 var db = mysql.createConnection({
     host: '127.0.0.1',
     user: 'root',
-    password: 'omysql1703',
+    password: 'password',
     database: 'mysql'
 })
 app.use(cors());
@@ -39,6 +39,17 @@ app.post("/api/insert/user", (require, response)=> {
     });
 });
 
+app.post("/api/insert/like", (require, response)=> {
+    const username = require.body.username;
+    const lessonID = require.body.lessonID;
+    const sqlInsert = "INSERT INTO LikedBy VALUES (?, ?);"
+    // // console.log(sqlInsert);
+    db.query(sqlInsert, [username, lessonID], (err, result) => {
+        response.send(result);
+        console.log(err);
+    });
+});
+
 app.post("/api/insert/create", (require, response) => {
     // // console.log(require.body.query);
     const title = require.body.title;
@@ -46,7 +57,7 @@ app.post("/api/insert/create", (require, response) => {
     const link = require.body.link;
     const username = require.body.username;
     // const query = "%" + require.body.query + "%";
-    const sqlInsert = "INSERT INTO `lessons` (`lessonID`, `Title`, `Description`, `link`, `Username`) VALUES (((SELECT m FROM (SELECT max(`lessonID`) AS m FROM `lessons`) as k) + 1), ?, ?, ?, ?);"
+    const sqlInsert = "INSERT INTO `lessons` (`lessonID`, `Title`, `Description`, `link`, `author`) VALUES (((SELECT m FROM (SELECT max(`lessonID`) AS m FROM `lessons`) as k) + 1), ?, ?, ?, ?);"
     db.query(sqlInsert, [title, description, link, username], (err, result) => {
         // console.log(sqlInsert, [query]);
         response.send(result);
@@ -86,6 +97,18 @@ app.post("/api/get/user", (require, response) => {
 app.post("/api/get/user_likes", (require, response) => {
     const arl = require.body.arl;
     const sqlSelect = "SELECT * from Lessons where lessonID in (SELECT lessonID FROM LikedBy WHERE username = ?)";
+    db.query(sqlSelect, [arl], (err, result) => {
+        // console.log(result);
+        response.send(result);
+        if (err) {
+            console.log(err);
+        }
+    })
+});
+
+app.post("/api/get/user_uploads", (require, response) => {
+    const arl = require.body.arl;
+    const sqlSelect = "SELECT * from Lessons where author = ?";
     db.query(sqlSelect, [arl], (err, result) => {
         // console.log(result);
         response.send(result);

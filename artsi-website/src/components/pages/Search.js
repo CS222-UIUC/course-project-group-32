@@ -1,13 +1,14 @@
 import React, {useEffect, useState} from "react";
 import { Outlet, useParams, useLocation } from "react-router-dom";
 import Axios from 'axios';
+import Lesson from "../Lesson.js";
 import "./Search.css";
 
 
 export default function Search () {
     const url = "http://localhost:3002";
     const [query, setQuery] = useState('');
-    const [lessonsList, setLessonsList] = useState([]);
+    const [results, setLessonsList] = useState([]);
     let params = useParams();
     const searchLessons = () => {
         // // console.log("searching " + query.toString());
@@ -30,13 +31,8 @@ export default function Search () {
     return (
         <div>
             <h2>Search results for {params.id}</h2>
-            {lessonsList.map((val) => {
-                // when lessons are implemented, make an onClick go to /lesson/{val.id}
-                return <div className="card">
-                    <p>{val.id}</p>
-                    <h3>{val.Title}</h3>
-                    <p>{val.Description}</p>
-                </div>
+            {results.map((result) => {
+                return <Lesson lesson={result} key={result.lessonID}/>
             })}
         </div>
     )
