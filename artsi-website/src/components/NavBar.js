@@ -5,6 +5,7 @@ import './NavBar.css';
 import { Button } from './Button';
 import SearchBar from './SearchBar';
 import Data from './Data.json'
+import Cookies from 'universal-cookie';
 
 function NavBar() {
     const imgStyle = {
@@ -16,6 +17,10 @@ function NavBar() {
 
     const handleClick = () => setClick(!click);
     const closeMobileMenu = () => setClick(false);
+    const cookies = new Cookies();
+    const logOut = () => {
+        cookies.remove('arl', '', {path: '/'});
+    }
 
     // const showButton = () => {
     //     if(window.innerWidth <= 960) {

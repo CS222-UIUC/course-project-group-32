@@ -1,9 +1,11 @@
 import React, {useState} from 'react';
 import Axios from 'axios';
 import './SignUp.css';
+import Cookies from 'universal-cookie';
 
 function SignUp () {
     const url = "http://localhost:3002";
+    const cookies = new Cookies();
     const [username, setUsername] = useState('');
     const [rUsername, setRUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -19,8 +21,10 @@ function SignUp () {
                 alert('wrong username or password!');
                 return;
             } else {
+                cookies.set('arl', username, {path: '/'});
                 setUsername("");
                 setPassword("");
+                // return <Navigate to='profile'/>
             }
         })
     }
