@@ -19,11 +19,11 @@ Kendrit: Back-end Development
 
 1. git clone: ```https://github.com/CS222-UIUC/course-project-group-32.git```
 
-2. Open the directory when you have git-cloned the directory. First, we will need to get a local database set up. To do this, steps are:
+2. Open the directory when you have git-cloned the directory. First, we will need to get a local database set up. To do this, the steps are:
 
 A. Install [MySQL Workbench](https://dev.mysql.com/downloads/workbench/) to create and interact with the database.
 
-B. In Workbench, set up a "New Connection" and the host and port as default, and the username and password to whatever you like.
+B. In Workbench, set up a "New Connection" and leave the host and port as default, and the username and password to whatever you like.
 
 C. Now, we will need to import the database schema for the website. Take the following code and paste it into an empty file, and save it as a ```.sql``` file on your computer:
 
