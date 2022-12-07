@@ -51,19 +51,19 @@ function Create () {
   }
 
   return (
-    <div id="container">
-        <div id="card">
+    <div id="container" style={{padding:"20px", display: "flex", justifyContent: "center", alignItems: "center"}}>
+        <div id="card" style={{borderRadius: "10px"}}>
             <h1>Upload</h1>
-            <label>Title<input id="cred-field" type="text" onChange={(e) => {
+            <label style={{fontSize:"20px", fontWeight:"500"}}>Title<input id="cred-field" type="text" onChange={(e) => {
                 setTitle(e.target.value);
             }} value={title}/></label>
-            <label>Description<input id="cred-field" type="text" onChange={(e) => {
+            <label style={{fontSize:"20px", fontWeight:"500"}}>Description<input id="cred-field" type="text" onChange={(e) => {
                 setDescription(e.target.value);
             }} value={description}/></label>
-            <label>Link<input id="cred-field" type="text" onChange={(e) => {
+            <label style={{fontSize:"20px", fontWeight:"500"}}>Link<input id="cred-field" type="text" onChange={(e) => {
                 setLink(e.target.value);
             }} value={link}/></label>
-            <button className="btn" onClick={upload}>Submit!</button>
+            <button className="btn" onClick={upload} style={{fontSize:"15px", fontWeight:"500", marginTop: "50px", width: "80%", marginLeft: "10%", borderRadius: "5px"}}>Submit!</button>
         </div>
     </div>
 )
