@@ -8,7 +8,7 @@ const styles = {
   borderRadius: '0.25rem',
 };
 
-const Practice = class extends React.Component {
+const Board = class extends React.Component {
   constructor(props) {
     super(props);
 
@@ -34,7 +34,7 @@ const Practice = class extends React.Component {
     <ReactSketchCanvas
       ref={this.canvas}
       style={styles}
-      width="750px"
+      width="500px"
       height="500px"
       strokeWidth={4}
       strokeColor={this.state.strokeColor}
@@ -82,4 +82,4 @@ const Practice = class extends React.Component {
 }
 };
 
-export default Practice;
+export default Board;

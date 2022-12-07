@@ -13,3 +13,8 @@
     max-width: 900px;
     margin-bottom: 40px;
 }
+
+.category-title {
+    padding-left: 200px;
+    padding-right: 200px;
+}
