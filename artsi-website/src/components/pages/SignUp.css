@@ -22,6 +22,23 @@ form {
     border: 1px solid #ccc;
     box-sizing: border-box;
   }
+  .login-btn {
+    color: white;
+    background-color: darkblue;
+  }
+  .login-btn:hover {
+    color: black;
+    background-color: aqua;
+  }
+
+  .register-btn {
+    color: white;
+    background-color: darkblue;
+  }
+  .register-btn:hover {
+    color: black;
+    background-color: aqua;
+  }
   
   /* Set a style for all buttons */
   /* button {
@@ -35,9 +52,9 @@ form {
   } */
   
   /* Add a hover effect for buttons */
-  button:hover {
+  /* button:hover {
     opacity: 0.8;
-  }
+  } */
   
   
   /* Add padding to containers */

@@ -3,12 +3,18 @@ import '../../App.css';
 import Card from './Card';
 import {Grid} from "@material-ui/core"
 import './Home.css'
+const styles = {
+    marginTop: "20px",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center"
+};
 
 function Home () {
     return (
         <div role='home-exists' style={{ padding: 30 }}>
             <Grid container direction="row" alignItems="center" justify="center" style={{minHeight: "75vh"}} spacing={7} className='category'>
-                <Grid xs={12} style={{ paddingLeft: "300px", marginTop: "20px"}}>
+                <Grid xs={12} style={styles}>
                     <div className="category-title">
                         Drawing Principles
                     </div>
@@ -40,7 +46,7 @@ function Home () {
             </Grid>
             <br></br><br></br><br></br>
             <Grid container direction="row" alignItems="center" justify="center" style={{minHeight: "75vh"}} spacing={7} className='category'>
-                <Grid xs={12} style={{ paddingLeft: "300px", marginTop: "20px"}}>
+                <Grid xs={12} style={styles}>
                     <div className="category-title">
                         Coloring
                     </div>
@@ -72,7 +78,7 @@ function Home () {
             </Grid>
             <br></br><br></br><br></br>
             <Grid container direction="row" alignItems="center" justify="center" style={{minHeight: "75vh"}} spacing={7} className='category'>
-                <Grid xs={12} style={{ paddingLeft: "300px", marginTop: "20px"}}>
+                <Grid xs={12} style={styles}>
                     <div className="category-title">
                         Figure Drawing
                     </div>
