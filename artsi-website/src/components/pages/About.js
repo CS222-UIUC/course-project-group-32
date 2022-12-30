@@ -9,7 +9,19 @@ function About () {
             <div className="owners"> 
                 <p>
                     <br></br> 
-                    <b>Raul Higareda</b>:<br></br> Co-Founder, web development
+                    <b>Raul Higareda</b>:<br></br> Co-Founder, front-end web development
+                </p>
+                <p>
+                    <br></br> 
+                    <b>Kendrit Tahiraj</b>:<br></br> Co-Founder, front-end and back-end web development
+                </p>
+                <p>
+                    <br></br> 
+                    <b>Om Bhatt</b>:<br></br> Co-Founder, back-end web development
+                </p>
+                <p>
+                    <br></br> 
+                    <b>Aamir Hafiz</b>:<br></br> Co-Founder, front-end web development
                 </p>
             </div>
             <br></br>
@@ -23,7 +35,7 @@ function About () {
                     lack the personalization that interaction with teachers brings.
                 </p>
                 <br></br>
-                <p>
+                {/* <p>
                     Artsi alleviates the stress and uncertainty of becoming an artist through a monthly subscription 
                     model that divides our services into three tiers: free, Tier 1, Tier 2. We provide lessons that fit 
                     the users' preferences based on what abilities they aim to achieve.
@@ -34,7 +46,7 @@ function About () {
                     social media that earn commission and have the opportunity to increase their following, teach private lessons, 
                     and gain gallery connections in the art community. This way we create symbiotic relationships between diverse artists 
                     that have the opportunity to learn from each other. 
-                </p>
+                </p> */}
                 <br></br>
                 <p>
                     Our initial niche target audience is teenagers in schools near liberal arts colleges. However, Artsi 

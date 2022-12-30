@@ -26,7 +26,7 @@ function App() {
           <Route path='/create' element={<Create/>} />
           <Route path='/sign-up' element={<SignUp/>}/>
           <Route path='/search' element={<Search/>}>
-            <Route path=":id" element={<Search/>}/>
+          <Route path=":id" element={<Search/>}/>
           </Route>
         </Routes>
       </Router>

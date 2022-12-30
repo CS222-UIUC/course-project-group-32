@@ -17,6 +17,7 @@ function Profile () {
     const [firstname, setFirstname] = useState('');
     const [lastname, setLastname] = useState('');
     const [lessons, setLessons] = useState([]);
+    const [uploaded, setUploaded] = useState([]);
     const login = () => {
         Axios.post(url + '/api/get/user/', {
             arl: arl
@@ -40,12 +41,24 @@ function Profile () {
             }
         })
     }
+    const getUploaded = () => {
+        Axios.post(url + '/api/get/user_uploads/', {
+            arl: arl
+        }).then((response) => {
+            let data = response.data;
+            if (response.data.length > 0) {
+                setUploaded(data);
+                // console.log(lessons);
+            }
+        })
+    }
     useEffect(() => {
         const cookies = new Cookies();
         // console.log("REDIRECTING");
         arl = cookies.get('arl');
         login();
         getLiked();
+        getUploaded();
         if (username === '') {
             return <Navigate to='/sign-up'/>
         } else {
@@ -79,13 +92,16 @@ function Profile () {
                         <div>
                             <b>Uploaded Lessons</b>
                             <br/><br/>
+                            {uploaded.map((uploaded) => {
+                                return <Lesson lesson={uploaded} arl={arl} key={uploaded.lessonID}/>
+                            })}
                         </div>
-                        <div className="tut-links">
+                        {/* <div className="tut-links">
                             <img className="tut-img" src={brush} alt="Profile Picture"/>
                             <Link to='/tutorial' state={{ t: "tutorial title", v: ""}} style={{marginLeft: "10px", marginTop: "10px"}}>
-                                Tutorial Name
+                                Tutorial Names
                             </Link>
-                        </div>
+                        </div> */}
                     </Grid>
                     <Grid className="tut-item" style={{color: 'black', backgroundColor: 'skyblue'}}>
                         <div>
@@ -95,17 +111,17 @@ function Profile () {
                                 return <Lesson lesson={lesson} key={lesson.lessonID}/>
                             })}
                         </div>
-                        <div className="tut-links">
+                        {/* <div className="tut-links">
                             <img className="tut-img" src={brush} alt="Profile Picture"/>
                             <Link to='/tutorial' state={{ t: "tutorial title", v: ""}} style={{marginLeft: "10px", marginTop: "10px"}}>
                                 Tutorial Name
                             </Link>
-                        </div>
+                        </div> */}
                     </Grid>
                     <Grid className="btn-prof">
                         <button style={{width:"90%", height:"150%"}}>
                             <Link to='/create'>
-                                <b>Create New Video</b>
+                                <b>Upload New Video</b>
                             </Link>
                         </button>
                     </Grid>
